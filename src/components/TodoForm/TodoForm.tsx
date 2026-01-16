@@ -64,7 +64,7 @@ export const TodoForm = ({ users, todos, onAddTodo }: TodoFormProps) => {
     }
 
     onAddTodo({
-      id: todos.length > 0 ? Math.max(...todos.map(td => td.id)) + 1 : 1,
+      id: todos.length > 0 ? Math.max(...todos.map(todo => todo.id)) + 1 : 1,
       completed: false,
       title: engUkrSpacesOnly(todoTitle),
       userId: selectedUserId,
@@ -74,11 +74,7 @@ export const TodoForm = ({ users, todos, onAddTodo }: TodoFormProps) => {
   };
 
   return (
-    <form
-      action="/api/todos"
-      method="POST"
-      onSubmit={event => handleSubmit(event)}
-    >
+    <form onSubmit={event => handleSubmit(event)}>
       <div className="field">
         <label htmlFor="title">Title:&nbsp;</label>
         <input
